@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+env/
+.env
+.env*
+lab/.env
+
+# AWS credentials & secrets
+*secret*
+*credentials*
+*.pem
+*.key
+*.p8
+snowflake_config.json
+
+# IDE & OS
+.vscode/
+.DS_Store
+Thumbs.db
