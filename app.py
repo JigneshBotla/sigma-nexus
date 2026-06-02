@@ -61,9 +61,14 @@ region_name = st.sidebar.text_input(
     value=os.getenv("AWS_DEFAULT_REGION", "us-east-1")
 )
 
-# ── Guard: bucket must be set ─────────────────────────────────────────────────
-if not bucket_name:
-    st.error("Please configure your S3 Bucket Name in the sidebar.")
+# ── Guard: credentials must be configured ─────────────────────────────────────
+if not aws_key or not aws_secret or not bucket_name:
+    st.info("👋 Welcome to the **Sigma Command Center**!")
+    st.markdown(
+        "Please configure your **AWS Access Key ID**, **AWS Secret Access Key**, "
+        "and **S3 Bucket Name** in the sidebar on the left to authenticate and load "
+        "your real-time incident dashboard."
+    )
     st.stop()
 
 # ── Data loading ──────────────────────────────────────────────────────────────
